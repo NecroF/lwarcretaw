@@ -26,13 +26,9 @@ class ScienceDirect(Spider):
     def start_requests(self):
 
         keyword = self.word_list_tmp[0]
-        # 构造 url
-        # url = 'https://dblp.org/search?q='
-        # url += keyword
-        # url += '&h=1&format=json'
+
         self.word_list_tmp.pop(0)
-        print("=== Key words to be crawl: ", self.word_list_tmp)
-        #get 方法
+        # 构造url, get 方法
         url = f'https://api.elsevier.com/content/search/sciencedirect?query={keyword}&count=100&apiKey={Api_Key}&httpAccept=application%2Fjson'
         #url = 'https://api.elsevier.com/content/search/sciencedirect?start=5900&count=100&query=Transformer&apiKey=7f59af901d2d86f78a1fd60c1bf9426a&httpAccept=application%2Fjson'
         # 创建 scrapy.Request 实例
@@ -109,6 +105,7 @@ class ScienceDirect(Spider):
 
 
 if __name__ == '__main__':
+    # 便于调试，输出item到指定文件和指定打印日志等级
     process = CrawlerProcess(settings={
         "FEEDS": {
             "items.json": {"format": "json"},
