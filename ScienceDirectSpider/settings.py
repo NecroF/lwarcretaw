@@ -12,7 +12,7 @@ BOT_NAME = 'ScienceDirectSpider'
 SPIDER_MODULES = ['ScienceDirectSpider.spiders']
 NEWSPIDER_MODULE = 'ScienceDirectSpider.spiders'
 
-
+LOG_LEVEL = "ERROR"
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'ScienceDirectSpider (+http://www.yourdomain.com)'
 
